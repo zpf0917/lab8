@@ -240,6 +240,9 @@ waiting for the publish event.
 let receive_report (s : string) : unit =
   let _ = add_listener publish (fun () -> Printf.printf "Verified news %s\n" s ) in () ;;
 
+let receive_report (s : string) : unit =
+  let _ = add_listener publish (fun () -> fakeNewsNetwork s ) in
+  let _ = add_listener publish (fun () -> buzzFake s ) in () ;;
 
 
 (*......................................................................
